@@ -3,26 +3,25 @@
 
 //LÉXICO:
 
-//ACCIONES
+//ACTIONS
 void cartToPol(int x, int y);
 void polToCart(int r, int theta);
-void menuOpciones();
+void optionMenu();
 
 int main(){
     
-    menuOpciones();
+    optionMenu();
 
     return 0;
 }
 
 
 
-//ACCIÓN QUE TRANSFORMA COORDENADAS CARTESIANAS EN POLARES:
+//Action that transforms polar coordinates into cartesian 
 void cartToPol(int x, int y){
-   //LÉXICO LOCAL:
+
    float r = sqrt(pow(x, 2) + pow(y, 2)); //valor de r
 
-   //InicioA:
     if(x > 0){
         if(y >= 0){
             printf("(%f, arctan(%d/%d))\n", r, y, x);         //Si x > 0 e y >= 0
@@ -40,37 +39,35 @@ void cartToPol(int x, int y){
             printf("(%f, π + arctan(%d/%d))\n", r, y, x);     //Si x < 0
         }
     }
-    //FinA
 }
 
-//ACCIÓN QUE TRANSFORMA COORDENADAS POLARES EN CARTESIANAS:
+//Action that transforms polar coordinates into cartesians:
 void polToCart(int r, int theta){
-    //InicioA:
     printf("(%d cos(%d), %d sen(%d))\n", r, theta, r, theta);
-    //FinA
 }
 
-void menuOpciones(){
-    //LÉXICO LOCAL:
+//Option menu
+void optionMenu(){
+
     int opc, x, y, r, theta; //almacena la opción del usuario
-    //InicioA:
+
     do{
         printf("****************************************\n");
-        printf("1-Convertir Coord. Cartesianas a Polares\n");
-        printf("2-Convertir Coord. Polares a Cartesianas\n");
-        printf("3-Salir\n");
-        printf("Ingrese la opción: ");
+        printf("1-Convert cartesian coordinates to polar\n");
+        printf("2-Convert Polar Coordinates to Cartesian\n");
+        printf("3-End program\n");
+        printf("Enter option: ");
         scanf("%d", &opc);
         printf("****************************************\n");
         printf("\n");
 
         if(opc == 1){
 
-            printf("Ingrese la coodenada x: ");
+            printf("Enter the x coordinate: ");
             scanf("%d", &x);
             printf("\n");
 
-            printf("Ingrese la coordenada y: ");
+            printf("Enter the y coordinate: ");
             scanf("%d", &y);
             printf("\n");
 
@@ -78,11 +75,11 @@ void menuOpciones(){
 
         }else{
             if(opc == 2){
-                printf("Ingrese el valor de r: ");
+                printf("Enter the value of r: ");
                 scanf("%d", &r);
                 printf("\n");
 
-                printf("Ingrese el valor de theta: ");
+                printf("Enter the value of theta: ");
                 scanf("%d", &theta);
                 printf("\n");
 
@@ -92,6 +89,5 @@ void menuOpciones(){
 
     }while(opc != 3);
 
-    printf("Fin del programa!\n");
-    //FinA
+    printf("End of program!\n");
 }
